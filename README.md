@@ -51,6 +51,10 @@ Este programa:
 
 ---
 
+## Enlaces
+
+- [Wikipedia](https://es.wikipedia.org/wiki/Juego_de_la_vida) → Enlace a wikipedia
+
 ## ▶ Ejecución
 
 ### 1️⃣ Instalar dependencias
