@@ -16,10 +16,13 @@ UPDATE_INTERVAL = 100  # milisegundos
 paused = False
 
 
+# Aquí creo una matriz inicial con celdas vivas o muertas
 def crear_tablero(rows, cols, prob_live):
     return np.random.choice([0, 1], size=(rows, cols), p=[1 - prob_live, prob_live])
 
 
+# Con esta función cuento los vecinos vivos de una celda y los agrego a un array
+# que se usará para mostrar el número de vecinos en la segunda subgráfica.
 def contar_vecinos(tablero, x, y):
     filas, cols = tablero.shape
     count = 0
@@ -32,7 +35,8 @@ def contar_vecinos(tablero, x, y):
             count += tablero[nx, ny]
     return count
 
-
+# Con esta función creo un array que contiene el número de vecinos vivos para cada celda
+# y lo uso para mostrarlo en la segunda subgráfica.
 def crear_array_vecinos(tablero):
     vecinos_array = np.zeros((ROWS, COLS), dtype=int)
     for i in range(ROWS):
@@ -41,6 +45,8 @@ def crear_array_vecinos(tablero):
     return vecinos_array
 
 
+# Esta función calcula la siguiente generación del tablero según las reglas del juego
+# de la vida de Conway.
 def siguiente_generacion(tablero):
     new_tablero = np.copy(tablero)
     for i in range(tablero.shape[0]):
@@ -84,6 +90,7 @@ for i in range(ROWS):
 axes[1].axis('off')
 
 
+# Función de actualización de la animación
 def actualizar(frameNum):
     global tablero
     if not paused:
@@ -103,7 +110,7 @@ def actualizar(frameNum):
 
     return img_tablero, img_vecinos, contador_texto
 
-
+# Funciones para manejar eventos de teclado y clics del ratón
 def on_key(event):
     global paused
     if event.key == ' ':
