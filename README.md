@@ -61,3 +61,8 @@ Este programa:
 
 ```bash
 pip install numpy matplotlib
+```
+
+## Imagenes
+
+  [Screenshot](./screenshot.jpg)
